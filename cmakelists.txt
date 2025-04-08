@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.10)
+project(IIoTClient)
+
+set(CMAKE_CXX_STANDARD 17)
+
+find_package(CURL REQUIRED)
+
+add_executable(IIoTClient main.cpp Sensor.cpp Network.cpp)
+target_include_directories(IIoTClient PRIVATE ${CURL_INCLUDE_DIRS})
+target_link_libraries(IIoTClient PRIVATE ${CURL_LIBRARIES})
